@@ -1,0 +1,42 @@
+/// \defgroup kinectgroup KinectInterface
+/// \section principe Principe
+/// Ce module est pensé comme une surcouche à la NUI et doit servir d'interface entre une application et le capteur Kinect.
+/// Le centre du module est la classe KinectInterface. Cette dernière doit encapsuler tout ce qui est nécessaire à l'utilisation 
+/// de ce dernier par l'application de sorte à :
+///
+/// -# ne pas encombrer le code gérant la logique de l'application
+/// -# offrir une assurance qu'aucune erreur n'a eu lieu lors de l'initialisation sans qu'il soit nécessaire de vérifier chaque appel
+///    dans l'application.
+///
+/// Le but est donc de <em> simplifier l'interaction avec la Kinect</em> et de <em> procurer une interface facile d'utilisation</em>
+/// aux applications l'utilisant, diminuant ainsi le temps de développement desdites applications.
+/// 
+/// Le fonctionnement prévu est le suivant : la classe KinectInterface sera instanciée au début du programme et initialisera 
+/// correctement la Kinect en fonction des arguments passés à son constructeur. Lorsque sa méthode start() sera appelée, elle
+/// commencera à recevoir les données envoyées par la Kinect et à les traiter, générant des évènements qui seront ensuite récupérés
+/// par l'application via la méthode pollEvent(). Ces évènements sont des instances de la classe KinectEvent, prévue pour rassembler
+/// tout les types de données de retour possibles dans une structure dont le traitement sera ensuite aisé. 
+///
+/// \section features Fonctionnalités
+///
+/// Le module est toujours en construction. Sont déjà implémentés:
+///		- la reconnaissance des utilisateurs et la génération d'évènements pour leur déplacement (position générale
+///		  ou squelette complet)
+///		- la génération d'évènements précisant la qualité de la détection de squelette
+///		- la reconnaissance de mouvements précis de la main, dont:
+///				- Fermer la main
+///				- Ouvrir la main
+///				- Avancer la main vers le capteur Kinect
+///		- la capacité à préciser la façon dont le capteur doit choisir qui traquer et à fournir sa propre méthode de choix à l'interface.
+///
+/// Le but est de terminer l'analyse des données venues des trames de squelettes (position). Ensuite, le traitement des trames de
+/// données couleur et audio sont envisagés. 
+/// Voir \ref todo "la liste des choses à faire" pour une liste complète.
+/// \section exemple Exemple d'utilisation
+/// 
+/// Cet exemple montre comment il est possible d'utiliser le module KinectInterface pour détecter des évènements indiquant le
+/// déplacement du squelette et l'afficher dans une fenêtre SFML. On remarque que le traitement des informations est en effet
+/// quasiment invisible.
+/// \include squelette-basique.cpp
+/// D'autres exemples démontrant chacune des fonctionnalités de l'interface sont présentes dans le sous-dossier Projet/exemples.
+

@@ -1,1 +1,3 @@
-# Kinect game
+This code was written as part of my second year project at the IUT of Montpellier. The goal was to create a game using movement as its primary source of inputs using the Kinect for Windows sensor. This repository hosts both the code of a primitive game and the KinectInterface library which aims to hide the complexity of using the Kinect SDK by providing a simple easy-to-use API not unlike the event-based systems of SDL or other graphical libraries.
+
+The project uses the [Kinect for Windows SDK v1.8](https://www.microsoft.com/en-us/download/details.aspx?id=40278) made available by Microsoft and the [SFML](https://www.sfml-dev.org/index.php) library for its graphics. As I no longer have access to a Kinect sensor, the project is discontinued. 

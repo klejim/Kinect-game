@@ -1,0 +1,10 @@
+/// \mainpage Présentation de l'interface
+/// \tableofcontents
+/// \section intro_sec Introduction
+/// Ce projet est un essai à  l'utilisation de l'API NUI (<a href="https://msdn.microsoft.com/en-us/library/hh855352.aspx">Natural User Interface</a>) pour la manipulation du capteur Kinect for Windows (version 1).
+/// Le but de ce projet est de réaliser un module communicant avec le capteur Kinect et utilisable d'une façon intuitive. Ainsi les données brutes seront analysés puis transmises à l'utilisateur
+/// sous une forme plus simple et immédiatement utilisable.
+/// \section index_section Contenu
+/// Le module \ref kinectgroup "KinectInterface" est en cours de conception. 
+///
+/// La liste des tâches à faire est \ref todo "ici".

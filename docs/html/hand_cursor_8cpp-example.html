@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.12"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>KinectInterface: handCursor.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">KinectInterface
+   &#160;<span id="projectnumber">v0.1</span>
+   </div>
+   <div id="projectbrief">Créer une interface facilitant l&#39;interprétation des données envoyées par la Kinect</div>
+  </td>
+   <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Recherche" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.12 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('hand_cursor_8cpp-example.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">handCursor.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<p>Cet exemple montre comment utiliser l'interface pour récupérer les informations sur les mouvements et actions de la main d'un utilisateur et les afficher dans une fenêtre SFML. Par souci de simplifier au maximum le code, le cas où plusieurs squelettes sont présents n'est pas pris en compte.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;SFML/Graphics.hpp&quot;</span></div><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="_kinect_8hpp.html">Kinect.hpp</a>&quot;</span></div><div class="line"></div><div class="line"><span class="keywordtype">int</span> <a name="a0"></a><a class="code" href="test_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe">main</a>()</div><div class="line">{</div><div class="line">    <span class="comment">// la reconnaissance des interactions demande que la reconnaissance de squelette et le flux de profondeur </span></div><div class="line">    <span class="comment">// soient initialisés. </span></div><div class="line">    <a name="_a1"></a><a class="code" href="class_kt_i_1_1_kinect_interface.html">KtI::KinectInterface</a> KInterface(<a name="a2"></a><a class="code" href="namespace_kt_i.html#a0b0cca0b97d96e3b5db48e5acd2fa791acbbf78f31755638d0bb2765f72ee63c2">KtI::INITIALIZE_SKELETON</a>|<a name="a3"></a><a class="code" href="namespace_kt_i.html#a0b0cca0b97d96e3b5db48e5acd2fa791a5b0ec38af6ce1ec6e750a75a3d594d79">KtI::INITIALIZE_DEPTH</a>|<a name="a4"></a><a class="code" href="namespace_kt_i.html#a0b0cca0b97d96e3b5db48e5acd2fa791a2e37dd3e2158b1949d2f2390d9d9c1e0">KtI::SKELETON_NEAR_MODE</a>);</div><div class="line">    </div><div class="line">    sf::RenderWindow window(sf::VideoMode(640, 480), <span class="stringliteral">&quot;Test reconnaissance des actions de la main&quot;</span>);</div><div class="line">    <span class="comment">// selon l&#39;état de la main, on affichera une image de curseur différente</span></div><div class="line">    sf::Texture firstTexture;</div><div class="line">    sf::Texture secondTexture;</div><div class="line">    firstTexture.loadFromFile(<span class="stringliteral">&quot;cursor-open.png&quot;</span>);</div><div class="line">    secondTexture.loadFromFile(<span class="stringliteral">&quot;cursor-closed.png&quot;</span>);</div><div class="line"></div><div class="line">    sf::Sprite handCursor;</div><div class="line">    sf::Sprite handCursorClosed;</div><div class="line">    handCursor.setTexture(firstTexture);</div><div class="line">    handCursor.setScale(0.5, 0.5);</div><div class="line">    handCursorClosed.setTexture(secondTexture);</div><div class="line">    handCursorClosed.setScale(0.5, 0.5);</div><div class="line">    <span class="keywordtype">bool</span> handClosed(<span class="keyword">false</span>);</div><div class="line">    <span class="keywordtype">long</span> angle(0);</div><div class="line">    <span class="comment">// un tableau de cercles représentant notre squelette</span></div><div class="line">    sf::CircleShape articulations[<a name="a5"></a><a class="code" href="namespace_kt_i.html#a687da1695d70fb10b7e18c6632c61779a28f7c0bc08ba594170211947c21b361c">KtI::SKELETON_JOINTS_COUNT</a>];</div><div class="line">    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 20; i++)</div><div class="line">    {</div><div class="line">        articulations[i].setFillColor(sf::Color::Blue);</div><div class="line">        articulations[i].setRadius(8);</div><div class="line">    }</div><div class="line">    <span class="comment">// on lance l&#39;acquisition des trames de données provenant de la Kinect</span></div><div class="line">    KInterface.<a name="a6"></a><a class="code" href="class_kt_i_1_1_kinect_interface.html#a55b0d9da1ed774281e617fdcc4a8051b">start</a>();</div><div class="line">    <span class="keywordflow">while</span> (window.isOpen())</div><div class="line">    {</div><div class="line">        <span class="comment">// création d&#39;un évènement KtI::KinectEvent</span></div><div class="line">        <a name="_a7"></a><a class="code" href="class_kt_i_1_1_kinect_event.html">KtI::KinectEvent</a> kEvent;</div><div class="line">        <span class="comment">// lecture de la pile d&#39;évènement</span></div><div class="line">        <span class="keywordflow">while</span> (KInterface.<a name="a8"></a><a class="code" href="class_kt_i_1_1_kinect_interface.html#a58ce638c419ee1bcf1057e35b68b0ea2">pollEvent</a>(kEvent))</div><div class="line">        {</div><div class="line">            <span class="comment">// déplacement du squelette</span></div><div class="line">            <span class="keywordflow">if</span> (kEvent.<a name="a9"></a><a class="code" href="class_kt_i_1_1_kinect_event.html#a9e0f09c5cc52a93c5399c2273afedffc">type</a> == <a name="a10"></a><a class="code" href="class_kt_i_1_1_kinect_event.html#a9f16e1ef1a46c45967d1fdfe1caa7e15a180629752f43b366e0d0bc7c87e35f40">KtI::KinectEvent::SkeletonMoved</a>)</div><div class="line">            {</div><div class="line">                <span class="comment">// on met à jour les positions correspondantes dans le tableau articulations</span></div><div class="line">                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 20; i++)</div><div class="line">                {</div><div class="line">                    sf::Vector2f pos;</div><div class="line">                    pos.x = kEvent.<a name="a11"></a><a class="code" href="class_kt_i_1_1_kinect_event.html#a7c0e11d1a08ed3f2b7c2135225979b2d">skeleton</a>.<a name="a12"></a><a class="code" href="struct_kt_i_1_1_kinect_event_1_1_skeleton_moved_event.html#a564e981ffd530112b8ed62dc4c632d66">positions</a>[i].<a name="a13"></a><a class="code" href="struct_kt_i_1_1_kinect_event_1_1_skeleton_moved_event.html#a54423f91d3be36f24307c134fe1defab">x</a>;</div><div class="line">                    pos.y = kEvent.<a class="code" href="class_kt_i_1_1_kinect_event.html#a7c0e11d1a08ed3f2b7c2135225979b2d">skeleton</a>.<a class="code" href="struct_kt_i_1_1_kinect_event_1_1_skeleton_moved_event.html#a564e981ffd530112b8ed62dc4c632d66">positions</a>[i].<a name="a14"></a><a class="code" href="struct_kt_i_1_1_kinect_event_1_1_skeleton_moved_event.html#a8a1ded385d58b6ae34dd8bb207900087">y</a>;</div><div class="line">                    articulations[i].setPosition(pos);</div><div class="line">                }</div><div class="line">            }</div><div class="line">            <span class="comment">// déplacement de la main</span></div><div class="line">            <span class="keywordflow">if</span> (kEvent.<a class="code" href="class_kt_i_1_1_kinect_event.html#a9e0f09c5cc52a93c5399c2273afedffc">type</a> == <a name="a15"></a><a class="code" href="class_kt_i_1_1_kinect_event.html#a9f16e1ef1a46c45967d1fdfe1caa7e15ab1b15786ef1ebe8f335953ad89ad6331">KtI::KinectEvent::HandCursorMoved</a>)</div><div class="line">            {</div><div class="line">                <span class="comment">// mise à jour de la position des sprites</span></div><div class="line">                sf::Vector2f pos;</div><div class="line">                pos.x = kEvent.<a name="a16"></a><a class="code" href="class_kt_i_1_1_kinect_event.html#a7ded0f3c7759f7ceffa915dd45a76b29">hand</a>.<a name="a17"></a><a class="code" href="struct_kt_i_1_1_kinect_event_1_1_hand_cursor_moved_event.html#a0d8de0b79459448b093f253ec984fbe2">position</a>.<a name="a18"></a><a class="code" href="struct_kt_i_1_1_kinect_event_1_1_hand_cursor_moved_event.html#a5e24f74a8f8a10c7365eeb423f1d960c">x</a> * 640;</div><div class="line">                pos.y = kEvent.<a class="code" href="class_kt_i_1_1_kinect_event.html#a7ded0f3c7759f7ceffa915dd45a76b29">hand</a>.<a class="code" href="struct_kt_i_1_1_kinect_event_1_1_hand_cursor_moved_event.html#a0d8de0b79459448b093f253ec984fbe2">position</a>.<a name="a19"></a><a class="code" href="struct_kt_i_1_1_kinect_event_1_1_hand_cursor_moved_event.html#a9038995e0d57d560edba4198e1f624ab">y</a> * 480;</div><div class="line">                handCursor.setPosition(pos);</div><div class="line">                handCursorClosed.setPosition(pos);</div><div class="line">            }</div><div class="line">            <span class="keywordflow">if</span> (kEvent.<a class="code" href="class_kt_i_1_1_kinect_event.html#a9e0f09c5cc52a93c5399c2273afedffc">type</a> == <a name="a20"></a><a class="code" href="class_kt_i_1_1_kinect_event.html#a9f16e1ef1a46c45967d1fdfe1caa7e15ab7e1ba0d2d2a916212acebae6ff50508">KtI::KinectEvent::HandGrip</a>)</div><div class="line">            {</div><div class="line">                handClosed = <span class="keyword">true</span>;</div><div class="line">                <span class="comment">// on change aussi la couleur du squelette affiché</span></div><div class="line">                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> n = 0; n &lt; <a class="code" href="namespace_kt_i.html#a687da1695d70fb10b7e18c6632c61779a28f7c0bc08ba594170211947c21b361c">KtI::SKELETON_JOINTS_COUNT</a>; n++)</div><div class="line">                {</div><div class="line">                    articulations[n].setFillColor(sf::Color::Green);</div><div class="line">                }</div><div class="line">            }</div><div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (kEvent.<a class="code" href="class_kt_i_1_1_kinect_event.html#a9e0f09c5cc52a93c5399c2273afedffc">type</a> == <a name="a21"></a><a class="code" href="class_kt_i_1_1_kinect_event.html#a9f16e1ef1a46c45967d1fdfe1caa7e15aa7cf15791bb73fa3a926fd6cb8a2c5cd">KtI::KinectEvent::HandRelease</a>)</div><div class="line">            {</div><div class="line">                handClosed = <span class="keyword">false</span>;</div><div class="line">                <span class="comment">// là aussi, on change la couleur du squelette affiché</span></div><div class="line">                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> n = 0; n &lt; <a class="code" href="namespace_kt_i.html#a687da1695d70fb10b7e18c6632c61779a28f7c0bc08ba594170211947c21b361c">KtI::SKELETON_JOINTS_COUNT</a>; n++)</div><div class="line">                {</div><div class="line">                    articulations[n].setFillColor(sf::Color::Magenta);</div><div class="line">                }</div><div class="line">            }</div><div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (kEvent.<a class="code" href="class_kt_i_1_1_kinect_event.html#a9e0f09c5cc52a93c5399c2273afedffc">type</a> == <a name="a22"></a><a class="code" href="class_kt_i_1_1_kinect_event.html#a9f16e1ef1a46c45967d1fdfe1caa7e15a76fba4261b10a0616240e9e7ae38bb5b">KtI::KinectEvent::HandPush</a>)</div><div class="line">            {</div><div class="line">                <span class="comment">// et encore une fois ...</span></div><div class="line">                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> n = 0; n &lt; <a class="code" href="namespace_kt_i.html#a687da1695d70fb10b7e18c6632c61779a28f7c0bc08ba594170211947c21b361c">KtI::SKELETON_JOINTS_COUNT</a>; n++)</div><div class="line">                {</div><div class="line">                    articulations[n].setFillColor(sf::Color::White);</div><div class="line">                }</div><div class="line">            }</div><div class="line"></div><div class="line">        }</div><div class="line">        <span class="comment">// fin de la boucle d&#39;évènement de l&#39;interface, il ne reste plus qu&#39;à afficher les résultats</span></div><div class="line">        sf::Event event;</div><div class="line">        <span class="keywordflow">while</span> (window.pollEvent(event))</div><div class="line">        {</div><div class="line">            <span class="keywordflow">if</span> (event.type == sf::Event::Closed)</div><div class="line">                window.close();</div><div class="line">        }</div><div class="line">        window.clear();</div><div class="line">        <span class="keywordflow">if</span> (handClosed)</div><div class="line">        {</div><div class="line">            window.draw(handCursorClosed);</div><div class="line">        }</div><div class="line">        <span class="keywordflow">else</span></div><div class="line">        {</div><div class="line">            window.draw(handCursor);</div><div class="line">        }</div><div class="line">        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 20; i++)</div><div class="line">        {</div><div class="line">            window.draw(articulations[i]);</div><div class="line">        }</div><div class="line">        window.display();</div><div class="line">    }</div><div class="line">    <span class="comment">// fin de l&#39;acquisition des trames</span></div><div class="line">    KInterface.<a name="a23"></a><a class="code" href="class_kt_i_1_1_kinect_interface.html#a08fdf6d1c44f49cd8f1123140ad0173b">stop</a>();</div><div class="line">    <span class="keywordflow">return</span> 0;</div><div class="line">}</div></div><!-- fragment --> </div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Généré par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.12 </li>
+  </ul>
+</div>
+</body>
+</html>

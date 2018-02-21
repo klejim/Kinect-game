@@ -1,0 +1,17 @@
+/// \example squelette-basique.cpp
+///
+/// Cet exemple démontre comment il possible d'utiliser l'interface pour récupérer le mouvement d'un squelette et l'afficher dans 
+/// une fenêtre SFML. Par souci de simplifier au maximum le code, le cas où plusieurs squelettes sont présents n'est pas pris en compte.
+
+/// \example handCursor.cpp
+///
+/// Cet exemple montre comment utiliser l'interface pour récupérer les informations sur les mouvements et actions de la main d'un 
+/// utilisateur et les afficher dans une fenêtre SFML. Par souci de simplifier au maximum le code, le cas où plusieurs squelettes sont 
+/// présents n'est pas pris en compte.
+
+/// \example squelette-defauts.cpp
+///
+/// Cet exemple montre la façon d'utiliser l'interface afin de récupérer les informations relatives à la qualité de la détection
+/// du squelette et les afficher dans une fenêtre SFML. Par souci de simplifier au maximum le code, le cas où plusieurs squelettes sont 
+/// présents n'est pas pris en compte.
+
