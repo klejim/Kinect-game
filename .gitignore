@@ -301,3 +301,6 @@ __pycache__/
 *.dll
 docs/latex
 exemples
+*.sln
+*.vcxproj
+*.vcxproj.filters

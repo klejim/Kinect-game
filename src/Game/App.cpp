@@ -371,7 +371,6 @@ void App::startGame(void)
                 result.setString(keyboard.getString());
             }
             // dessin des objets
-			result.setString("CLEMENT");
             window.clear();
             window.draw(background);
             if (keyboard.onScreen())
@@ -400,33 +399,35 @@ std::map<unsigned int, std::string> loadScores(void)
     file.open("scores.txt");
     bool done(false);
     std::map<unsigned int, std::string> scores;
-    while (!done)
-    {
-        char c = file.get();
-        if (c == '#')
-        {
-            char tmp[255];
-            file.getline(tmp, 255, '\n');
-            std::string line(tmp);
-            line = line.substr(2);
-            // on récupère le nom
-            int endName = line.find(' ');
-            std::string name = line.substr(0, endName);
-            line = line.substr(endName + 1);
-            // puis le score
-            int pos1 = line.find('('), pos2 = line.find(')');
-            int score = strtol(line.substr(pos1 + 1, pos2 - 1).c_str(), nullptr, 10);
-            // si le nom est valide (pas une ligne de ---), on l'ajoute
-            if (name.compare("----"))
-            {
-                scores[score] = name;
-            }
-        }
-        if (c == -1)
-        {
-            done = true;
-        }
-    }
+	if (file.is_open()) {
+		while (!done)
+		{
+			char c = file.get();
+			if (c == '#')
+			{
+				char tmp[255];
+				file.getline(tmp, 255, '\n');
+				std::string line(tmp);
+				line = line.substr(2);
+				// on récupère le nom
+				int endName = line.find(' ');
+				std::string name = line.substr(0, endName);
+				line = line.substr(endName + 1);
+				// puis le score
+				int pos1 = line.find('('), pos2 = line.find(')');
+				int score = strtol(line.substr(pos1 + 1, pos2 - 1).c_str(), nullptr, 10);
+				// si le nom est valide (pas une ligne de ---), on l'ajoute
+				if (name.compare("----"))
+				{
+					scores[score] = name;
+				}
+			}
+			if (c == -1)
+			{
+				done = true;
+			}
+		}
+	}
     return scores;
 }
 
